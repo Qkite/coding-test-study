@@ -16,18 +16,21 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
-def solution(arrayA, arrayB):
 
-    GCD = arrayA[0]
+
+
+def cal_GCD_and_Prime(array1, array2):
+
+    GCD = array1[0]
     can_not_divide = True
 
-    for i in range(1, len(arrayA)):
-        GCD =gcd(GCD, arrayA[i])
+    for i in range(1, len(array1)):
+        GCD =gcd(GCD, array1[i])
 
     print("GCD: ", GCD)
 
-    for i in range(len(arrayB)):
-        if(arrayB[i] % GCD ==0):
+    for i in range(len(array2)):
+        if(array2[i] % GCD ==0):
             can_not_divide = False
             break
 
@@ -35,6 +38,13 @@ def solution(arrayA, arrayB):
         return GCD
     else:
         return 0
+
+
+def solution(arrayA, arrayB):
+
+    return max(cal_GCD_and_Prime(arrayA, arrayB), cal_GCD_and_Prime(arrayB, arrayA))
+
+
 
 print(solution([10,20], [5,17]))
 
